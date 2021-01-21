@@ -1,4 +1,3 @@
-
 function validate() {
     
     document.getElementById('first-name-error').style.visibility = 'hidden';
@@ -21,29 +20,3 @@ function validate() {
 
     document.cookie = `username=${firstName} ${lastName}; expires=31 Dec 2024 12:00:00 UTC; path=/`;
 }
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-window.onload = function display() {
-    let username = getCookie("username");
-    if (username !== '') {
-        document.getElementById('greeting').innerHTML = `Welcome ${username}`;
-    }
-    
-    document.getElementById('current-date').innerHTML = new Date().toDateString();
-};
