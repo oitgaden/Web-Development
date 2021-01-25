@@ -1,0 +1,31 @@
+body {
+    background-color: lightslategray;
+}
+
+div {
+    background-color: lightgreen;
+}
+
+#first-section {
+    font-weight: bold;
+}
+
+.section-heading {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+span {
+    padding-right: 20px;
+}
+
+.links {
+    background-color: lightgray;
+    margin-top: 20px;
+    padding: 10px;
+}

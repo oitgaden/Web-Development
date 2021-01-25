@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Forms Example</title>
+        <!--removeIf(production)-->
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+        <link rel="stylesheet" type="text/css" href="styles/forms.css">
+        <script src='scripts/registration.js'></script>
+        <!--endRemoveIf(production)-->
+        
+        <!-- inject:css -->
+        <!-- endinject -->
+    </head>
+
+    <body>
+        <h1>Student Registration</h1>
+        <form>
+
+            <div class="form-entry">
+                First Name: <input id='first-name' type="text" name="firstName"/>
+                <span id='first-name-error' class='error-msg' style='visibility:hidden'>Please enter first name.</span>
+            </div>
+
+            <div class="form-entry">
+                Last Name: <input id='last-name' type="text" name="lastName"/>
+                <span id='last-name-error' class='error-msg' style='visibility:hidden'>Please enter last name.</span>
+            </div>
+
+            <div class="form-entry">
+                <input type="button" value="Register" onclick="validate()"/>
+            </div>
+
+        </form>
+
+        <div class="links">
+            <span>
+                <a href="index.html">Home</a>
+            </span>
+        </div>
+        
+        <!-- inject:js -->
+        <!-- endinject -->
+    </body>
+</html>

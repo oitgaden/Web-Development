@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Examples of Table</title>
+        <!--removeIf(production)-->
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+        <link rel="stylesheet" type="text/css" href="styles/tables.css">
+        <script src="scripts/table.js"></script>
+        <!--endRemoveIf(production)-->
+        
+        <!-- inject:css -->
+        <!-- endinject -->
+    </head>
+
+    <body>
+        <h1>Students</h1>
+
+        <table>
+            <thead>
+                <th>Last Name</th>
+                <th>First Name</th>
+            </thead>
+            
+            <tbody id="person-list">
+
+            </tbody>
+        </table>
+
+        <div class="links">
+            <span>
+                <a href="index.html">Home</a>
+            </span>
+        </div>
+        <script>
+            initializePersons();
+        </script>
+        
+        <!-- inject:js -->
+        <!-- endinject -->
+    </body>
+</html>
