@@ -41,9 +41,9 @@ function images() {
 }
 
 function watch_files() {
-  watch('src/*.html', html);
-  watch('src/scripts/*.js', js);
-  watch('src/styles/*.css', css);
+  watch('*.html', html);
+  watch('scripts/*.js', js);
+  watch('styles/*.css', css);
 }
 
 exports.default = series(js, css, images, html, watch_files);
