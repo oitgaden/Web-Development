@@ -19,6 +19,7 @@
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-inject": "^5.0.5",
     "gulp-remove-code": "^3.0.4",
     "gulp-sourcemaps": "^2.6.5",
@@ -26,5 +27,7 @@
     "gulp-watch": "^5.0.1",
     "jest": "^26.6.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cypress": "^6.3.0"
+  }
 }

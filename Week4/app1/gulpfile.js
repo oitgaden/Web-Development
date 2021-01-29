@@ -3,11 +3,12 @@
 const { src, dest, series } = require('gulp');
 const minifyCSS = require('gulp-csso');
 const concat = require('gulp-concat');
-let uglify = require('gulp-uglify-es').default;
+const uglify = require('gulp-uglify-es').default;
 const inject = require('gulp-inject');
 const removeCode = require('gulp-remove-code');
-var sourcemaps = require('gulp-sourcemaps');
-var watch = require('gulp-watch');
+const sourcemaps = require('gulp-sourcemaps');
+const imagemin = require('gulp-imagemin');
+const watch = require('gulp-watch');
 
 function html() {
   return src(['*.html'])
@@ -37,6 +38,7 @@ function css() {
 
 function images() {
   return src('images/*.png')
+    .pipe(imagemin())
     .pipe(dest('build/images'));
 }
 
