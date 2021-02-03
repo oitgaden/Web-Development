@@ -19,6 +19,6 @@
 
 <style>
   body {
-      background-color: lightcoral;
+      background-color: beige;
   }
 </style>
