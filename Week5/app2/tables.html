@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Examples of Table</title>
+        <!--removeIf(production)-->
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/tables.css">
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="js/table.js"></script>
+        <!--endRemoveIf(production)-->
+        
+        <!-- inject:css -->
+        <!-- endinject -->
+        
+        <!-- inject:js -->
+        <!-- endinject -->
+    </head>
+
+    <body>
+        <h1>Students</h1>
+
+        <table>
+            <thead>
+                <th>Last Name</th>
+                <th>First Name</th>
+            </thead>
+            
+            <tbody id="person-list">
+
+            </tbody>
+        </table>
+
+        <div class="links">
+            <span>
+                <a href="index.html">Home</a>
+            </span>
+        </div>
+        <script>
+            $(document).ready(function() {
+                initializePersons();
+            });
+        </script>
+    </body>
+</html>
