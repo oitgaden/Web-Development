@@ -20,16 +20,16 @@
 
             <div class="form-entry">
                 First Name: <input id='first-name' type="text" name="firstName"/>
-                <span id='first-name-error' class='error-msg' style='visibility:hidden'>Please enter first name.</span>
+                <span id='first-name-error' class='error-msg' hidden>Please enter first name.</span>
             </div>
 
             <div class="form-entry">
                 Last Name: <input id='last-name' type="text" name="lastName"/>
-                <span id='last-name-error' class='error-msg' style='visibility:hidden'>Please enter last name.</span>
+                <span id='last-name-error' class='error-msg' hidden>Please enter last name.</span>
             </div>
 
             <div class="form-entry">
-                <input type="button" value="Register" onclick="validate()"/>
+                <input id="register-btn" type="button" value="Register"/>
             </div>
 
         </form>
@@ -42,5 +42,11 @@
         
         <!-- inject:js -->
         <!-- endinject -->
+
+        <script>
+            $(document).ready(function() {
+                initializeRegistration();
+            });
+        </script>
     </body>
 </html>

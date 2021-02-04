@@ -16,9 +16,11 @@ function displayPersons(persons) {
         let firstName = persons[i].firstName;
         let lastName = persons[i].lastName;
         tableList += "<tr><td>" + firstName + "</td><td>" + lastName + "</td>";
-
-        document.getElementById("person-list").innerHTML = tableList;
     }
+
+    // document.getElementById("person-list").innerHTML = tableList;
+
+    $("#person-list").append(tableList);
 }
 
 function add(value1, value2) {
