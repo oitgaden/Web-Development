@@ -1,6 +1,7 @@
 using System;
 using System.Net.Http;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -27,11 +28,11 @@ namespace webapi.Controllers
 
         [HttpGet]
         [Route("temperature/current")]
-        public ActionResult<CurrentTemperature> GetCurrentTemperature()
+        public async Task<ActionResult<CurrentTemperature>> GetCurrentTemperature()
         {
             try
             {
-                var currentTemperature =  getCurrentTemperature();
+                var currentTemperature =  await getCurrentTemperature();
 
                 return Ok(currentTemperature);
             }
@@ -43,13 +44,13 @@ namespace webapi.Controllers
             }
         }
 
-        internal CurrentTemperature getCurrentTemperature()
+        internal async Task<CurrentTemperature> getCurrentTemperature()
         {
-            HttpResponseMessage response = _httpClient.GetAsync(_currentTemperatureRequest).Result;
+            HttpResponseMessage response = await _httpClient.GetAsync(_currentTemperatureRequest);
 
             response.EnsureSuccessStatusCode();
-            var responseStream = response.Content.ReadAsStreamAsync().Result;
-            var currentWeather = JsonSerializer.DeserializeAsync<CurrentWeather>(responseStream).Result;
+            var content = await response.Content.ReadAsStringAsync();
+            var currentWeather = JsonSerializer.Deserialize<CurrentWeather>(content);
             
             return new CurrentTemperature
                 {
