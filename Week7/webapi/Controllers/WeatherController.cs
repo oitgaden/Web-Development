@@ -11,32 +11,33 @@ namespace webapi.Controllers
     [ApiController]
     public class WeatherController : ControllerBase
     {
-        private static string _currentTemperatureRequest;
-        private static readonly HttpClient _httpClient = new HttpClient();
         private readonly IConfiguration _config;
+        private readonly string appId;
+        private readonly string appKey;
+        private static readonly HttpClient _httpClient = new HttpClient {
+            BaseAddress = new Uri("http://api.weatherunlocked.com")
+        };
 
         public WeatherController(IConfiguration config)
         {
             _config = config;
-
-            var location = "45.302940,-122.777992"; // Wilsonville
-            var appId = _config["WeatherService:AppId"];
-            var appKey = _config["WeatherService:AppKey"];
-            
-            _currentTemperatureRequest = $"http://api.weatherunlocked.com/api/current/{location}?app_id={appId}&app_key={appKey}";
+            appId = _config["WeatherService:AppId"];
+            appKey = _config["WeatherService:AppKey"];
         }
 
         [HttpGet]
         [Route("temperature/current")]
         public async Task<ActionResult<CurrentTemperature>> GetCurrentTemperature()
         {
+            const string location = "45.302940,-122.777992"; // Wilsonville
+
             try
             {
-                var currentTemperature =  await getCurrentTemperature();
+                var currentTemperature =  await getCurrentTemperature(location);
 
                 return Ok(currentTemperature);
             }
-            catch(ApplicationException aex)
+            catch(ApplicationException ex)
             {
                 // Log failure later
 
@@ -44,11 +45,14 @@ namespace webapi.Controllers
             }
         }
 
-        internal async Task<CurrentTemperature> getCurrentTemperature()
+        internal async Task<CurrentTemperature> getCurrentTemperature(string location)
         {
+            var _currentTemperatureRequest = $"api/current/{location}?app_id={appId}&app_key={appKey}";
+            
             HttpResponseMessage response = await _httpClient.GetAsync(_currentTemperatureRequest);
 
             response.EnsureSuccessStatusCode();
+
             var content = await response.Content.ReadAsStringAsync();
             var currentWeather = JsonSerializer.Deserialize<CurrentWeather>(content);
             
