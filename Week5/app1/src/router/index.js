@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Home
+      component: Forms
     },
     {
       path: '/home',

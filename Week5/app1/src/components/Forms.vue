@@ -31,6 +31,7 @@
 
 <script>
     import { getAge } from '../Modules/AgeCalculator';
+    import {store} from "../modules/store.js"
     export default {
         name: 'Registration',
         methods: {
@@ -42,11 +43,16 @@
                     return;
                 }
                 if (this.lastName.length == 0) {
-                    this.lastNameErrorVisibility = 'visible';
+                    this.lastNameErrorVisibility = 'visi    ble';
                     return;
                 }
                 let age = getAge(this.birthDay, this.birthMonth, this.birthYear);
-                alert('Submitting Registration with age: ' + age);
+                // alert('Submitting Registration with age: ' + age);
+                store.setLoggedIn(true);
+                this.goToHome();
+            },
+            goToHome: function() {
+                this.$router.push({ path: 'home' })
             }
         },
         data () {

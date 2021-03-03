@@ -1,5 +1,5 @@
 <template>
-    <div class="links">
+    <div class="links" v-if="loggedIn">
         <span v-on:click='goToHome'>Home</span>
         <span v-on:click='goToTables'>Table Example</span>
         <span v-on:click='goToForms'>Form Example</span>
@@ -7,8 +7,12 @@
 </template>
 
 <script>
+  import {store} from "../modules/store.js"
   export default {
     name: 'NavBar',
+    props: {
+      loggedIn: Boolean
+    },
     methods: {
       goToHome: function() {
         this.$router.push({ path: 'home' })
