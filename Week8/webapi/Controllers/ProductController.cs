@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
 namespace webapi.Controllers
@@ -38,17 +39,17 @@ namespace webapi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Product> AddProduct(Product product)
+        public ActionResult<Product> AddProduct([FromBody] Product product)
         {
             _productService.AddProduct(product);
 
-            return CreatedAtAction(nameof(GetProduct), new { id = product.ProductId }, product);
+            return StatusCode(StatusCodes.Status201Created);
 
-            // return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status201Created);
+            // return CreatedAtAction(nameof(GetProduct), new { id = product.ProductId }, product);
         }
 
         [HttpPut("{productId}")]
-        public ActionResult UpdateProduct(int productId, Product productUpdate)
+        public ActionResult UpdateProduct(int productId, [FromBody] Product productUpdate)
         {
             productUpdate.ProductId = productId;
             _productService.UpdateProduct(productUpdate);
