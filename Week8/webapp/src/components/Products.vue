@@ -12,8 +12,8 @@
                 </thead>
                 <tbody>
                     <tr v-for="product in products" :key="product.productId">
-                        <td>{{ product.name }}</td>
-                        <td>${{ product.price }}</td>
+                        <td v-bind:class="{ lowInventory: product.lowInventory }">{{ product.name }}</td>
+                        <td v-bind:class="{ onSale: product.onSale }">${{ product.price }}</td>
                         <td>
                             <button v-on:click='displayProductDetails(product.productId)'>Details</button>
                             <button v-on:click='displayUpdateProduct(product.productId)'>Update</button>
@@ -244,4 +244,12 @@
         margin-top: 20px;
     }
 
+    .onSale {
+        background-color: lightgreen;
+    }
+
+    .lowInventory {
+        font-weight: bold;
+        background-color: yellow;
+    }
 </style>

@@ -4,7 +4,7 @@ public interface IProductService
 {
     List<ProductModel> GetAllProducts();
 
-    Product GetProductById(long productId);
+    ProductModel GetProductById(long productId);
 
     void AddProduct(Product product);
 

@@ -19,7 +19,7 @@ namespace webapi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Product>> GetAllProducts()
+        public ActionResult<List<ProductModel>> GetAllProducts()
         {
             _logger.LogDebug("Getting all products");
 
@@ -27,12 +27,12 @@ namespace webapi.Controllers
         }
 
         [HttpGet("{productId}")]
-        public ActionResult<Product> GetProduct(int productId)
+        public ActionResult<ProductModel> GetProduct(int productId)
         {
-            var product = _productService.GetProductById(productId);
+            var productModel = _productService.GetProductById(productId);
 
-            if (product != null) {
-                return Ok(product);
+            if (productModel != null) {
+                return Ok(productModel);
             } else {
                 return NotFound();
             }

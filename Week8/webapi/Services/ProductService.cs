@@ -34,9 +34,17 @@ public class ProductService : IProductService
         return productViewModels;
     }
 
-    public Product GetProductById(long productId)
+    public ProductModel GetProductById(long productId)
     {
-        return _productRespository.GetProductById(productId);
+        var product = _productRespository.GetProductById(productId);
+
+        return new ProductModel {
+            Name = product.Name,
+            Price = product.Price,
+            Count = product.Count,
+            OnSale = BusinessRules.isOnSale(product),
+            LowInventory = BusinessRules.isLowInventory(product)
+        };
     }
 
     public void AddProduct(Product product)
