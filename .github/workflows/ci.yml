@@ -21,12 +21,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - name: Restore dependencies
+    - name: Restore API dependencies
       working-directory: ./Week8/webapi
       run: dotnet restore
-    - name: Build
+    - name: Build API
       working-directory: ./Week8/webapi
       run: dotnet build --no-restore
-    - name: Test
+    - name: Run API Unit Tests
       working-directory: ./Week8/webapi.tests
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --verbosity normal
