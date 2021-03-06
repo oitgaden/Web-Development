@@ -1,4 +1,4 @@
-name: web-dev-app-ci
+name: Web Development App CI
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  Build and Test API:
+  build-test-api:
 
     runs-on: ubuntu-latest
     
