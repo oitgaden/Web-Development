@@ -22,11 +22,11 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      working-directory: Week8/webapi
+      working-directory: ./Week8/webapi
       run: dotnet restore
     - name: Build
-      working-directory: Week8/webapi
+      working-directory: ./Week8/webapi
       run: dotnet build --no-restore
     - name: Test
-      working-directory: Week8/webapi.tests
+      working-directory: ./Week8/webapi.tests
       run: dotnet test --no-build --verbosity normal
