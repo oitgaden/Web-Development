@@ -1,4 +1,4 @@
-name: Web Development App
+name: web-dev-app-ci
 
 on:
   push:
