@@ -27,6 +27,9 @@ jobs:
     - name: Build API
       working-directory: ./Week8/webapi
       run: dotnet build --no-restore
+#     - name: Restore Test dependencies
+#       working-directory: ./Week8/webapi.tests
+#       run: dotnet restore --verbosity minimal
     - name: Run API Unit Tests
       working-directory: ./Week8/webapi.tests
-      run: dotnet test --verbosity normal
+      run: dotnet test --verbosity mininmal
