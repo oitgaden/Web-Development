@@ -32,4 +32,4 @@ jobs:
 #       run: dotnet restore --verbosity minimal
     - name: Run API Unit Tests
       working-directory: ./Week8/webapi.tests
-      run: dotnet test --verbosity mininmal
+      run: dotnet test --verbosity minimal
