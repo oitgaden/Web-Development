@@ -11,9 +11,9 @@ jobs:
 
     runs-on: ubuntu-latest
     
-    defaults:
-      run:
-        working-directory: Week8/webapi
+#     defaults:
+#       run:
+#         working-directory: Week8/webapi
 
     steps:
     - uses: actions/checkout@v2
@@ -22,8 +22,10 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
+      working-directory: Week8/webapi
       run: dotnet restore
     - name: Build
+      working-directory: Week8/webapi
       run: dotnet build --no-restore
     - name: Test
       working-directory: Week8/webapi.tests
