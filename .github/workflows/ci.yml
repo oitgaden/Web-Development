@@ -26,4 +26,5 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
+      working-directory: Week8/webapi.tests
       run: dotnet test --no-build --verbosity normal
