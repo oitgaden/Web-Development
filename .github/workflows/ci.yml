@@ -13,7 +13,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: week8/webapi
+        working-directory: Week8/webapi
 
     steps:
     - uses: actions/checkout@v2
