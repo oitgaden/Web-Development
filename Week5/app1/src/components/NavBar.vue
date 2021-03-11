@@ -7,7 +7,6 @@
 </template>
 
 <script>
-  import {store} from "../modules/store.js"
   export default {
     name: 'NavBar',
     props: {
