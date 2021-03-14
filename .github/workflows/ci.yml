@@ -47,7 +47,4 @@ jobs:
       with:
         context: ./Week8/webapi
         push: true
-        tags: oitgaden/webapi:latest
-        
-    - name: Container image digest
-      run: echo ${{ steps.docker_build.outputs.digest }}
+        tags: oitgaden/webapi:v1
