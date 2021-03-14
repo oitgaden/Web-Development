@@ -45,7 +45,7 @@ jobs:
     - name: Build and push container image
       uses: docker/build-push-action@v2
       with:
-        context: ./webapi
+        context: ./Week8/webapi
         push: true
         tags: oitgaden/webapi:latest
         
