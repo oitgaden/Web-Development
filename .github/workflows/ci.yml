@@ -47,4 +47,4 @@ jobs:
       with:
         context: ./Week8/webapi
         push: true
-        tags: oitgaden/webapi:latest
+        tags: oitgaden/webapi:v1
